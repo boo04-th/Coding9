@@ -77,3 +77,17 @@ class CompanyWithPayroll extends Company {
 
 Object. setPrototypeOf(company, CompanyWithPayroll.prototype);//Extending company to include payroll functionality
 console.log(company.calculateTotalPayroll());  // Expected output: 165600 (assuming emp1 and mgr1 salaries)
+
+// Task 5: Implementing Promotions
+Company.prototype.promoteToManager = function (employee, teamSize) {
+    const index = this.employees.indexOf(employee);
+    if (index !== -1) {
+        const promotedManager = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+        this.employees[index] = promotedManager;
+    }
+};
+
+// Test case for Task 5
+company.promoteToManager(emp1, 3);
+company.listEmployees(); // Expected output: "Manager: Alice Johnson, ID: 101, Department: Sales, Salary: $5000, Team Size: 3"
+
