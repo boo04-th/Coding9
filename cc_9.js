@@ -30,7 +30,7 @@ class Manager extends Employee { //Defines a Manager class that extends the Empl
       return `Manager: ${this.name}, ID: ${this.id}, Department: ${this.department}, Salary: $${this.salary}, Team Size: ${this.teamSize}`;
     }
   
-    calculateBonus() { /Computes and returns the manager's annual bonus
+    calculateBonus() { //Computes and returns the manager's annual bonus
         return this.salary * 12 * 0.10;
     }
     calculateAnnualSalary() { //Computes the total annual salary including the bonus
@@ -57,9 +57,10 @@ class Company { //Computes the total annual salary including the bonus
 }
 
 //Task 4: Implementing a Payroll System
-    calculateTotalPayroll() {  //Calculates and returns the total payroll for all employees in the company
-        return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
-    }
+calculateTotalPayroll() {  //Calculates and returns the total payroll for all employees in the company
+    return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
+}
+
 //Test Cases
 const company = new Company("TechCorp");
 company.addEmployee(emp1);
